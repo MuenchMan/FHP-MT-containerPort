@@ -9,6 +9,7 @@
 img {
     display:block;
 }
+/*
 
 .BGDiv 	{
 	width:1920px;
@@ -24,38 +25,94 @@ img {
 	width:1340px;
 	height:260px;
 }
+*/
 .containerStack	{
 	display:inline;
+	position:relative;
 	float:left;
 	width:80px;
 	height:260px;
 	margin-right:10px;
 	background-color:grey;
 }
+/*
 .containerStack:last-child	{
 	margin:0px;
 }
+
+*/
+.stackSlot	{
+	display:inline;
+	float:left;
+	width:6px;
+	height:24px;
+	margin:1px;
+}
+.stackSlotFull	{
+	display:inline;
+	float:left;
+	width:6px;
+	height:24px;
+	margin:1px;
+	background-color: blue;
+	}
+
+/*
 #emptyStacks	{	/* unused Stack space (for now) */
 	width:980px;
 	background-color:transparent;
 }
-
-.containerCrane	{
+/*
+.standardContainer	{
+	display:inline;
+	float:left;
+	width:6px;
+	height:24px;
+	margin:1px;
+	background-color: royalblue;
+}
+*/
+.containerCraneIdle	{
 	position:absolute;
 	width:100px;
 	height:240px;
 	top:110px;
 	left:1320px;
-	background-color:red;
+	background-color:grey;
+	opacity:0.6;
+}
+.containerCraneTransfer{
+	position:absolute;
+	width:100px;
+	height:240px;
+	top:110px;
+	left:1320px;
+	background-color:grey;
 	opacity:0.6;
 
 	animation-name:craneMovement;
-	animation-duration:6s;
-	animation-timing-function: ease-in-out;
-	animation-direction: alternate;
-	animation-iteration-count:infinite;
+	animation-duration:4s;
+	animation-timing-function: ease-in;
+	animation-direction: normal;
+	animation-fill-mode:forwards;
+} 
+.containerCraneReverse{
+	position:absolute;
+	width:100px;
+	height:240px;
+	top:110px;
+	left:1480px;
+	background-color:grey;
+	opacity:0.6;
+
+	animation-name:craneMovementReverse;
+	animation-duration:4s;
+	animation-timing-function: ease-in;
+	animation-direction: normal;
+	animation-fill-mode:forwards;
 }
-.craneTrolley	{
+
+.craneTrolleyIdle	{
 	position:relative;
 	width:100px;
 	height:40px;
@@ -63,12 +120,36 @@ img {
 	left:0px;
 	margin-top:10px;
 	background-color:darkred;
+}
+.craneTrolleyTransfer	{
+	position:relative;
+	width:100px;
+	height:40px;
+	top:0px;
+	left:0px;
+	margin-top:10px;
+	background-color:royalblue;
 
 	animation-name:trolleyMovement;
-	animation-duration:6s;
-	animation-timing-function: ease-in-out;
-	animation-direction: alternate;
-	animation-iteration-count:infinite;
+	animation-duration:4s;
+	animation-timing-function: ease-in;
+	animation-direction: normal;
+	animation-fill-mode:forwards;
+}
+.craneTrolleyReverse	{
+	position:relative;
+	width:100px;
+	height:40px;
+	top:190px;
+	left:0px;
+	margin-top:10px;
+	background-color:black;
+
+	animation-name:trolleyMovementReverse;
+	animation-duration:4s;
+	animation-timing-function: ease-in;
+	animation-direction: normal;
+	animation-fill-mode:forwards;
 }
 
 .containerShip	{
@@ -77,17 +158,201 @@ img {
 	height:120px;
 	top:90px;
 	left:1300px;
-	background-color:black;
+	background-color:royalblue;
+}
+.shipMenu	{
+	width:100px;
+	height: 100px;
+	background-color: red;
 }
 
+#ship01Stack	{
+	transform-origin: 0 0;
+	transform: rotate(-90deg) translateX(-100px) translateY(20px);
+}
 
 /* ANIMATIONS */
 @keyframes craneMovement	{
 	0%		{}
-	100%	{transform:translateX(+360px);}
+	100%	{transform:translateX(+160px);}
 }
-
 @keyframes trolleyMovement	{
 	0%		{}
-	100%	{transform:translateY(+150px);}
+	100%	{transform:translateY(+190px);}
 }
+
+@keyframes craneMovementReverse	{
+	0%		{}
+	100%	{transform:translateX(-160px);}
+}
+@keyframes trolleyMovementReverse	{
+	0%		{}
+	100%	{transform:translateY(-190px);}
+}
+
+
+
+/* JONATHANS CSS */
+
+section div {
+  z-index: 1;
+}
+
+#back.blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+
+#back {
+    z-index: 0;
+    transition: all 1s;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#fader.fade {
+  z-index: 1;
+  opacity: 0.75;
+  transition-property: opacity, z-index;
+  transition-duration: 1s, 0.1s;
+  transition-delay: 0s, 0s;
+}
+
+#fader {
+  z-index: -1;
+  width: 1920px;
+  height: 1080px;
+  background: #000;
+  opacity: 0;
+  transition-property: opacity, z-index;
+  transition-duration: 1s, 0.1s;
+  transition-delay: 0s, 0.9s;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+}
+
+article {
+  width: 7px;
+  height: 25px;
+  margin-left: 1px;
+  margin-top: 1px;
+  float: left;
+}
+
+
+
+
+
+.color_Maersk { background-color: #A5B8C8;}
+
+.color_MSC { background-color: #F4BC00;}
+
+.color_CMA_CGM { background-color: #007CA6;}
+
+.color_Evergreen_Line { background-color: #00B352;}
+
+.color_Hapag_Lloyd { background-color: #FF982A;}
+
+.color_Cosco { background-color: #B6B8AF;}
+
+.color_PIL { background-color: #164D9B;}
+
+.color_CSCL { background-color: #359677;}
+
+.color_MOL { background-color: #216556;}
+
+.color_Hamburg_Süd { background-color: #DC0000;}
+
+section div {
+  top: 363px;
+}
+
+div.level {
+  position: absolute;
+  height: 261px;
+  width: 81px;
+  transition-property: top, left, -webkit-transform, background, z-index;
+  transition-duration: 1s, 1s, 1s, 1s, 0.1s;
+  transition-delay: 0s, 0s, 0s, 0s, 0.9s;
+}
+
+section.active div.level {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition-property: top, left, -webkit-transform, background, z-index;
+  transition-duration: 1s, 1s, 1s, 1s, 0.1s;
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+}
+
+section.active div.level:after {
+    content: attr(data-level);
+    display: block;
+    background: rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 7px;
+    padding: 0 3px;
+    line-height: 12px;
+    font-family: sans-serif;
+    height: 10px;
+    position: absolute;
+    top: -10px;
+}
+
+
+
+/* ----------------- position stack expanded ----------------- */
+
+section.active div {
+  top: 310px;
+  -webkit-transform: scale(2);
+
+}
+
+section.active div:nth-child(1) {
+  left: 580px !important;
+}
+
+section.active div:nth-child(2) {
+  left: 750px !important;
+}
+
+section.active div:nth-child(3) {
+  left: 920px !important;
+}
+
+section.active div:nth-child(4) {
+  left: 1090px !important;
+}
+
+section.active div:nth-child(5) {
+  left: 1260px !important;
+}
+
+article div {
+  display: none;
+}
+
+section.active article.info div {
+  display: block;
+  width: 50px;
+  margin-left: 33px;
+  margin-top: 25px;
+  height: 50px;
+  background-color: #fff;
+  z-index: 15;
+  font-size: 5px;
+}
+
+span {
+  display: block;
+  font-family: sans-serif;
+}
+
+.front {
+  z-index: 15 !important;
+}
+
+

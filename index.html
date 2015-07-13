@@ -7,19 +7,25 @@
 
 
 <body>
-	<div class="BGDiv"></div>
-	<div class="stackWrapper">
-		<div class="containerStack" id="emptyStacks"></div>
-		<div class="containerStack" id="container"></div> <!-- change ID back -->
-		<div class="containerStack" id="stack13"></div>
-		<div class="containerStack" id="stack14"></div>
-		<div class="containerStack" id="stack15"></div>
+
+	<div id="fader"></div>
+	<img id="back" src="graphics/altenwerder-layout.jpg">
+
+	<section class="stackWrapper stack">
+		<div class="containerStack level" id="stack12" style="left:1490px" data-level="level 1"></div>
+		<div class="level"  data-level="level 2" style="left:1490px"></div>
+		<div class="level"  data-level="level 3" style="left:1490px"></div>
+		<div class="level"  data-level="level 4" style="left:1490px"></div>
+		<div class="level"  data-level="level 5" style="left:1490px"></div>
+	</section>
+
+
+	<div class="containerShip" id="ship01" style="left:1300px">
+		<div class="containerStack" id="ship01Stack"></div>
 	</div>
 
-
-	<div class="containerShip" id="containerShip01"></div>
-	<div class="containerCrane" id="crane01">
-		<div class="craneTrolley" id="trolley01"></div>
+	<div class="containerCraneIdle" id="crane01">
+		<div class="craneTrolleyIdle" id="trolley01"></div>
 	</div>
 
 	<script type="text/javascript" src="tuio.js"></script>
